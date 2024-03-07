@@ -8,20 +8,23 @@ Você terá 3 variáveis. Sendo elas;
 Imprima no console o valor que será gasto em R$ para realizar esta viagem. */
 
 
-let precoEtalnol = 2.10;
-let precoGasolina = 5.09;
-let kmPorLitros = 15;
-let distanciaEmKm = 20000;
-let tipoCombustivel = 'Etanol'; /* Para mudar o resultado no código, essa let pode ser alterada */
+function calcularValor() {
 
-const litrosConsumidos = distanciaEmKm / kmPorLitros;
+    // Isso verifica se o  usuário informou todos os campos.
+    var tipoCombustivel = document.querySelector('input[name="tipoCombustivel"]:checked');
+    var consumoCarro = parseFloat(document.getElementById("consumoCarro").value);
+    var precoCombustivel = parseFloat(document.getElementById("precoCombustivel").value);
+    var distancia = parseFloat(document.getElementById("distancia").value);
 
-if (tipoCombustivel === "Etanol") {
-    /* Se na const tipoCombustivel tiver escrito exatamente ("===")'Etanol', irá multiplicar as consts litrosConsumidos * precoEtalnol ... */
-    const valorGasto = litrosConsumidos * precoEtalnol;
-    console.log(valorGasto.toFixed((2)))
-} else {
-    /* Se não tiver 'Etanol' dentro do let tipoCombustivel irá multiplicar as consts litrosConsumidos * precoGasolina */
-    const valorGasto = litrosConsumidos * precoGasolina;
-    console.log(valorGasto.toFixed((2)))
+    //Verifica se os campos anteriores forem preenchidos.
+    if (tipoCombustivel && consumoCarro && precoCombustivel && distancia) {
+        var consumo = consumoCarro;
+        var valorTotal = (distancia / consumo) * precoCombustivel;
+
+        // Essa parte é para exibir o resultado na página
+        document.getElementById('resultado').innerText = "O valor aproximado gasto com combustível : R$ " + valorTotal.toFixed(2);
+    } else {
+        // Caso o usuário esqueceu alguma informação será informado com essa msg
+        document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos.'
+    }
 }

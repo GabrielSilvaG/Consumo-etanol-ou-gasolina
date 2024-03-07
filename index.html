@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calculo combustivel</title>
+</head>
+
+<body>
+    <form id="formulario">
+        <input type="radio" id="etanol" name="tipoCombustivel" value="etanol">
+        <label for="etanol">Etanol</label>
+        <input type="radio" id="gasolina" name="tipoCombustivel" value="gasolina">
+        <label for="gasolina">Gasolina</label><br><br>
+
+        <label for="consumoCarro">Consumo médio do carro (km/l):</label>
+        <input type="number" id="consumoCarro" required><br><br>
+
+        <label for="precoCombustivel"> Preço do combustível por litro (R$): </label>
+        <input type="number" id="precoCombustivel" step="0.01" required><br><br>
+
+        <label for="distancia">Distancia da viagem em (Km):</label>
+        <input type="number" id="distancia" required><br><br>
+
+        <button type="button" onclick="calcularValor()">Calcular</button>
+
+        <p id="resultado"></p>
+
+    </form>
+
+
+    <script src="js/ConsCombustivelComIF.js"></script>
+</body>
+
+</html>
